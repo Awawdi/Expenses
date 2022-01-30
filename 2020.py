@@ -12,29 +12,28 @@ def find_sum(sum_to_find):
             if first_item + last_item == sum_to_find:
                 return [first_item, last_item], number_of_checks
 
-def find_sum2(sum_to_find):
+def better_find_sum(sum_to_find):
     number_of_checks=0
     last_item = expenses[len(expenses)-1]
 
     for first_item in expenses:
-        for second_item in expenses[expenses.index(last_item):expenses.index(first_item):-1]:
+        for expense in expenses[expenses.index(last_item):expenses.index(first_item):-1]:
             number_of_checks = number_of_checks + 1
-            last_item = second_item
+            last_item = expense
+            sum = first_item + expense
 
-            sum = first_item + second_item
-            print("first item {} second item {} sum {}".format(first_item,second_item,sum))
             if sum > 2020:
                 continue
             if sum < 2020:
                 break
             if sum == sum_to_find:
-                return [first_item, second_item], number_of_checks
+                return [first_item, expense], number_of_checks
 
             
 if __name__ == "__main__":
     expenses.sort()    
-    result2,number_of_checks2 = find_sum2(2020)
-    print("numbers are {} {}, {} checks needed".format(result2[0],result2[1],number_of_checks2))
+    better_result,better_number_of_checks = better_find_sum(2020)
+    print("numbers are {} {}, {} checks needed".format(better_result[0],better_result[1],better_number_of_checks))
 
     result,number_of_checks = find_sum(2020)
     print("numbers are {} {}, {} checks needed".format(result[0],result[1],number_of_checks))
