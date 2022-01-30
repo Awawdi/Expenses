@@ -23,9 +23,9 @@ def better_find_sum(sum_to_find):
             sum = first_item + expense
 
             if sum > 2020:
-                continue
+                continue #take last pointer one step back
             if sum < 2020:
-                break
+                break #move first pointer one step forward
             if sum == sum_to_find:
                 return [first_item, expense], number_of_checks
 
