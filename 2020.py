@@ -7,10 +7,10 @@ expenses = [
 def find_sum(sum_to_find):
     number_of_checks=0
     for first_item in expenses:
-        for last_item in expenses[::]:
+        for second_item in expenses:
             number_of_checks = number_of_checks +1
-            if first_item + last_item == sum_to_find:
-                return [first_item, last_item], number_of_checks
+            if first_item + second_item == sum_to_find:
+                return [first_item, second_item], number_of_checks
 
 def better_find_sum(sum_to_find):
     number_of_checks=0
