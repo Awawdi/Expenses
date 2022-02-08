@@ -34,7 +34,7 @@ def better_find_sum(sum_to_find):
             
 if __name__ == "__main__":
     years.sort()    
-    sum = 3030
+    sum = 3000
     result,number_of_checks = find_sum(sum)
     print("Normal: years with sum of {} are {} {}, {} checks needed".format(sum,result[0],result[1],number_of_checks))
 
